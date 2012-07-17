@@ -13,20 +13,19 @@ html
       .navbar-inner
         .container-fluid
           a.btn.btn-navbar data-toggle='collapse' data-target='.nav-collapse' <span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
-          a.brand href='/index.html'
-            | NC Road Signs
+          ==link_to 'NC Road Signs', '/index.html', :class => 'brand'
           .nav-collapse
             ul.nav
               li class="#{'active' if @page_name == 'index'}"
-                a href="/index.html" Home
+                ==link_to 'Home', '/index.html'
               li#quizes.dropdown
                 a.dropdown-toggle data-toggle='dropdown' href='#quizes'
                   ' Quizes
                   b.caret
                 ul.dropdown-menu
                   li class="#{'active' if @page_name == 'warning-signs'}"
-                    a href="/quizes/warning-signs.html" Warning Signs
+                    ==link_to 'Warning Signs', '/quizes/warning-signs.html'
               li class="#{'active' if @page_name == 'help'}"
-                a href="/help.html" Help
+                ==link_to 'Help', '/help.html'
     .container
       == yield

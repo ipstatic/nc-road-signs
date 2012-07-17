@@ -10,7 +10,7 @@
       legend==questions[:question]
       .control-group
         label.control-label
-          img src="#{questions[:image]}"
+          ==image_tag questions[:image]
         .controls
           label.radio
             input id="q#{questions_counter}.1" name='q1' value='1' type='radio'==questions[:answer_1]
