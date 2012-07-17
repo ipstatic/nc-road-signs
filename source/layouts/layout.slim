@@ -1,0 +1,32 @@
+doctype 5
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="description" content="Learn North Carolina road signs by multiple choice."
+    meta name="author" content="Jarod Watkins"
+    title Learn NC Road Signs
+    ==stylesheet_link_tag 'application'
+    ==javascript_include_tag 'application'
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          a.btn.btn-navbar data-toggle='collapse' data-target='.nav-collapse' <span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span>
+          a.brand href='/index.html'
+            | NC Road Signs
+          .nav-collapse
+            ul.nav
+              li class="#{'active' if @page_name == 'index'}"
+                a href="/index.html" Home
+              li#quizes.dropdown
+                a.dropdown-toggle data-toggle='dropdown' href='#quizes'
+                  ' Quizes
+                  b.caret
+                ul.dropdown-menu
+                  li class="#{'active' if @page_name == 'warning-signs'}"
+                    a href="/quizes/warning-signs.html" Warning Signs
+              li class="#{'active' if @page_name == 'help'}"
+                a href="/help.html" Help
+    .container
+      == yield

@@ -1,0 +1,26 @@
+- if questions_counter == 1
+  - @class = 'current'
+-elsif questions_counter == @total
+  - @class = 'last'
+-else
+  - @class = ''
+.questions.well class="#{@class}"
+  form id="q#{questions_counter}" class="form-horizontal" data-answer="#{questions[:correct_answer]}"
+    fieldset
+      legend==questions[:question]
+      .control-group
+        label.control-label
+          img src="#{questions[:image]}"
+        .controls
+          label.radio
+            input id="q#{questions_counter}.1" name='q1' value='1' type='radio'==questions[:answer_1]
+          label.radio
+            input id="q#{questions_counter}.2" name='q2' value='2' type='radio'==questions[:answer_2]
+          label.radio
+            input id="q#{questions_counter}.3" name='q3' value='3' type='radio'==questions[:answer_3]
+          label.radio
+            input id="q#{questions_counter}.4" name='q4' value='4' type='radio'==questions[:answer_4]
+        - if questions_counter == @total
+          button.btn.btn-primary.pull-right.next.hide Finish
+        - else
+          button.btn.btn-primary.pull-right.next.hide Next Question
